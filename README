@@ -1,0 +1,8 @@
+LA COMPOISTION DU PROJET : 
+
+1 - pages : le dossier ou on mets la BasePage et toutes les autres pages
+2- feature : dans feature, on mets les scenarios fonctionnels avec le Ghekrin et dans le dossier features 
+
+            nous devons creer un dossier steps, qui la step definition des features
+
+            

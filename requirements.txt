@@ -1,0 +1,9 @@
+# python-dotenv pour pouvoir lire du fichier .env
+python-dotenv
+# playwright , pour utiliser les methodes playwright pour l'automatisation du UI et API
+# Le python installe la librairie de playwright mais pas le navigateur, ce qui fait, nous devons installer le navigateur ie chromium qui est le moteur de Chrome et Safari avec la commande : playwright install chromium
+playwright
+# behave, pour utiluser le Ghekin et l'assertion
+behave
+# allure-behave, pour une version avancée du rapport HTML avec les graph etc
+allure-behave
