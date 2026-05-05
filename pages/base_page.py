@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 class BasePage:
 
@@ -45,6 +45,10 @@ class BasePage:
         assert expected_title == actual_title,  (f"Expeted Title to contain '{expected_title}', and the actual title is '{actual_title}'")
 
 
+    def assert_element_contains_text(self, locator: str, text: str):
+
+        expect (self.page.locator(locator)).to_contain_text(text)
+        
     def _wait_for_element_to_be_visible(self, element):
         """
         Methode locale qui commence par _ et qui pourrait etre appelée seulement dans toutes les methodes de cette classe BasePage avec le slef
