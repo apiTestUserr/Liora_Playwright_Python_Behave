@@ -7,3 +7,4 @@ playwright
 behave
 # allure-behave, pour une version avancée du rapport HTML avec les graph etc
 allure-behave
+
