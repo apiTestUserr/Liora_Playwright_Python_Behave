@@ -3,9 +3,11 @@ name: Playwright Behave Tests
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+
   workflow_dispatch:
+
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   test:
@@ -29,7 +31,7 @@ jobs:
         run: |
           playwright install --with-deps chromium
 
-      - name: Run Behave tests
+      - name: Run Behave tests with Allure
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
@@ -37,7 +39,31 @@ jobs:
         run: |
           behave -f allure_behave.formatter:AllureFormatter -o allure-results
 
-      - name: Upload Allure Results
+      - name: Set up Java for Allure
+        uses: actions/setup-java@v4
+        if: always()
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Allure commandline
+        if: always()
+        run: |
+          npm install -g allure-commandline
+
+      - name: Generate Allure HTML report
+        if: always()
+        run: |
+          allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-html-report
+          path: allure-report
+
+      - name: Upload Allure raw results
         uses: actions/upload-artifact@v4
         if: always()
         with:
