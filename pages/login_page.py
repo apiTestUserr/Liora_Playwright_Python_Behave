@@ -2,6 +2,8 @@ from base_page import BasePage
 
 class LoginPage(BasePage):
 
+    # Cette classe fille herite automatiquement le constructeur de la classe mere BasePage avec ses parametres
+
 # ie la classe LoginPage herite de la classe Base Page
     USERNAME_INPUT = "input[name='username']"
     PASSWORD_INPUT = "input[name='password']"

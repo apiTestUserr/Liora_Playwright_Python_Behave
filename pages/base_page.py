@@ -4,6 +4,7 @@ class BasePage:
 
     def __init__(self, page: Page):
         
+        # Ici pas d'instanciation de Page juste on a declaré une variable page de type la classe Page 
         self.page = page
 
 # NAVIGATION
