@@ -6,7 +6,7 @@ import os
 
 ## Dans ce fichier, on rajoute les fixtures, before and after
 # before_scenario c'est reservé a behave pour s'executer avant chaque scenario
-def before_scenario(context):
+def before_scenario(context, scenario):
        # ici on lance le .start() - dans le after_scenario il faut le fermer (close)
 
     context.playwright = sync_playwright().start()
@@ -16,7 +16,7 @@ def before_scenario(context):
 # il faut donc charger le .env puis recuperer la valeur de la variable BROWSER a partir de .env
 
 
-    BROWSER =env_reader.get_env("BROSWER")
+    BROWSER =env_reader.get_env("BROWSER")
     HEADLESS = env_reader.get_bool_env("HEADLESS")
 
     if BROWSER == "chrome":

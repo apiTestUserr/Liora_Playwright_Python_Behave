@@ -7,7 +7,6 @@ def step_login(context, username, password):
     context.lp.login(username, password)
 
 
-@then("the Dashboard page is displayed")
-def step_verify_dashboard_displayed(context):
-
-    pass
+@given("the user is logged in")
+def step_user_logged_in(context):
+    context.lp.login(env_reader.get_env("USERNAME"), env_reader.get_env("PASSWORD"))

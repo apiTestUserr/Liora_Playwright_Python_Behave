@@ -2,6 +2,8 @@ from playwright.sync_api import Page, expect
 
 class BasePage:
 
+    PAGE_TITLE = "//h6[text()='{text}']"
+
     def __init__(self, page: Page):
         
         # Ici pas d'instanciation de Page juste on a declaré une variable page de type la classe Page 
@@ -55,7 +57,14 @@ class BasePage:
         Methode locale qui commence par _ et qui pourrait etre appelée seulement dans toutes les methodes de cette classe BasePage avec le slef
         """
         element.wait_for(state="visible")
+    
+    def assert_element_visible(self, locator):
 
+        expect(self.page.locator(locator)).to_be_visible()
+
+    def assert_page_is_displayed(self, page_name):
+
+        self.assert_element_visible(self.PAGE_TITLE.format(text=page_name))
 
 # BASIC ACTIONS
     def click_to_element(self, locator: str):

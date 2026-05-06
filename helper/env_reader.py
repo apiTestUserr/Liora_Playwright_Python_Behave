@@ -4,7 +4,7 @@ import os
 # On a besoin de charger les valeurs des variables dans le fichier .env puis fiare un get_env pour recuperer les valeurs a  partir de leur clé
 
 
-load_dotenv(override=True)
+load_dotenv(dotenv_path=".env.qa")
 
 # -> represente le type de retour de la methode
 

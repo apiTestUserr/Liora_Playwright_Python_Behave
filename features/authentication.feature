@@ -2,13 +2,27 @@ Feature:   Authentication Test Suite
 
 	As a user, a want to authenticate wth admin, user, super user
 
-	Scenario Outline: Successful Login
+    Background: shared preconditions
 		Given the user opens OrangeHRM demo Login page
+
+	@auth	@TNR
+	Scenario Outline: Successful Login
 		When the user logs in with username "<user>" and password "<pwd>"
-		Then the Dashboard page is displayed
+		Then the page "<page_name>" is displayed
 
 		Examples:
-			| user   | pwd      |
-			| Admin  | admin123 |
-			| Admin2 | admin128 |
-			| Admin2 | admin128 |
+			| user   | pwd      | page_name |
+			| Admin  | admin123 | Dashboard |
+			| Admin2 | admin128 | Dashboard |
+			| Admin2 | admin128 | Dashboard |
+
+	@auth
+	Scenario Outline: Invalid Login
+		When the user logs in with username "<user>" and password "<pwd>"
+		Then the page "<page_name>" is displayed
+
+		Examples:
+			| user  | pwd      | page_name |
+			| amira | admin123 | Login     |
+			| amira | admin128 | Login     |
+			| amira | admin128 | Login.    |
