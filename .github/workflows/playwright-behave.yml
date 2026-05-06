@@ -3,6 +3,8 @@ name: Playwright Behave Tests
 on:
   push:
     branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -29,8 +31,15 @@ jobs:
 
       - name: Run Behave tests
         env:
-            BASE_URL: ${{ secrets.BASE_URL }}
-            USERNAME: ${{ secrets.USERNAME }}
-            PASSWORD: ${{ secrets.PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-            behave
+          behave -f allure_behave.formatter:AllureFormatter -o allure-results
+
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results

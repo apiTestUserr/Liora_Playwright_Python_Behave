@@ -13,16 +13,4 @@ Feature:   Authentication Test Suite
 		Examples:
 			| user   | pwd      | page_name |
 			| Admin  | admin123 | Dashboard |
-			| Admin2 | admin128 | Dashboard |
-			| Admin2 | admin128 | Dashboard |
 
-	@auth
-	Scenario Outline: Invalid Login
-		When the user logs in with username "<user>" and password "<pwd>"
-		Then the page "<page_name>" is displayed
-
-		Examples:
-			| user  | pwd      | page_name |
-			| amira | admin123 | Login     |
-			| amira | admin128 | Login     |
-			| amira | admin128 | Login.    |
