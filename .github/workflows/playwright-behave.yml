@@ -3,8 +3,6 @@ name: Playwright Behave Tests
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -30,5 +28,9 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run Behave tests
-        run: |
-          behave
+          env:
+            BASE_URL: ${{ secrets.BASE_URL }}
+            USERNAME: ${{ secrets.USERNAME }}
+            PASSWORD: ${{ secrets.PASSWORD }}
+          run: |
+            behave
