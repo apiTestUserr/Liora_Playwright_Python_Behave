@@ -5,4 +5,40 @@ LA COMPOISTION DU PROJET :
 
             nous devons creer un dossier steps, qui la step definition des features
 
+Pour preparer a l'execution :
+
+1-Il faut creer un virtual env, et l'activer :
+
+Commades : 
+
+  Windows :
+• Creer le virtual env: python3 -m venv robot-env
+• Activer (pointer sur) le virtual env : robot-env\Scripts\activate
+
+Mac
+• python3 -m venv robot-env
+• source robot-env/bin/activate
+
+2- Il faut installer les librairie : pip install -r requirements.txt 
+
+
+Pour Executer : 
+
+ on a deja installer la libraire allure-behave, nous pouvons donc executer avec behave en utilisant les tags rajoutés dans les .features ie : @nvigation et on a utiliser le allure-report pour un resultat esthetique
+
+ la 1ere commande : 
+
+  behave -t @navigation -f allure_behave.formatter:AllureFormatter -o reports/allure-results
+
+  -> ici le resultat est enregistré dans un dossier reports sous format JSON
+
+ la 2eme commande permet de lancer un serveur local pour lire le JSON et l'afficher en HTML:
+
+   allure serve reports/allure-results
+
+
+
+
+
+
             

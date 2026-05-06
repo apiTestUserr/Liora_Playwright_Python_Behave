@@ -10,3 +10,4 @@ def step_login(context, username, password):
 @given("the user is logged in")
 def step_user_logged_in(context):
     context.lp.login(env_reader.get_env("USERNAME"), env_reader.get_env("PASSWORD"))
+ 
