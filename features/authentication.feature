@@ -19,7 +19,7 @@ Feature:   Authentication Test Suite
 	@auth1	@TNR
 	Scenario: Successful Login2
 		When the user logs in with username "Admin" and password "admin123"
-		Then the page "<page_name>" is displayed
+		Then the page "Dashboard" is displayed
 
 	@auth3 @TNR
     Scenario: Invalid login
