@@ -24,7 +24,7 @@ Feature:   Authentication Test Suite
 	@auth3 @TNR
     Scenario: Invalid login
    		 When the user logs in with username "wrong" and password "wrong"
-   		 Then the login error message "amira" should be displayed
+   		 Then the login error message "Invalid credentials" should be displayed
 
 
 
