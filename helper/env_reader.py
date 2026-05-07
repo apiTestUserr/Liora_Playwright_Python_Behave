@@ -9,6 +9,13 @@ load_dotenv(dotenv_path=".env.qa")
 # -> represente le type de retour de la methode
 
 def get_env(key: str) -> str:
+
+   
+   
+   """
+   Comments
+
+   """
   
    value = os.getenv(key)
    if value is None:

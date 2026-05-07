@@ -21,6 +21,12 @@ Mac
 
 2- Il faut installer les librairie : pip install -r requirements.txt 
 
+3 - Il faut installer les moteurs de navigations comme chromium ou bien webkit a l'aide de la commande :
+
+  playwright install 
+ou:
+  playwright install chromium
+
 
 Pour Executer : 
 

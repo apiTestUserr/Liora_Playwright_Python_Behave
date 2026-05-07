@@ -10,4 +10,8 @@ def step_login(context, username, password):
 @given("the user is logged in")
 def step_user_logged_in(context):
     context.lp.login(env_reader.get_env("USERNAME"), env_reader.get_env("PASSWORD"))
+
+@then('the login error message "{expected_error}" should be displayed')
+def step_verify_error_message(conext, expected_error):
+    conext.lp.assert_error_message_is_displayed(expected_error)
  
